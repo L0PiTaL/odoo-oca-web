@@ -13,14 +13,19 @@ odoo.define('web_widget_image_download.widget', function (require) {
             this.imgSrc = this.$el.find('img[name="' + this.name + '"]')
                 .attr('src');
 
+            var filename=""
+            if (this.node.attrs.filename!=undefined)
+                filename = this.view.datarecord[this.node.attrs.filename];
+
             $.ajax({
                 type: 'HEAD', // Avoid downloading full image, just headers
                 url: this.imgSrc,
                 complete: function (xhr) {
+                    if (filename=="")
+                        filename=xhr.getResponseHeader("Content-Type").replace('/', '.')
                     $widget.attr(
                         'download',
-                        xhr.getResponseHeader("Content-Type")
-                        .replace('/', '.')
+                        filename
                     );
                 }
             });

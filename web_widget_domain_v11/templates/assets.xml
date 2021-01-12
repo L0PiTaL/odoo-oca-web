@@ -20,6 +20,7 @@
                 src="/web_widget_domain_v11/static/src/copied-js/model_field_selector.js"/>
         <script type="text/javascript"
                 src="/web_widget_domain_v11/static/src/js/domain_field.js"/>
+        <script type="text/javascript" src="/web_widget_domain_v11/static/src/js/te2_char_domain_apply.js" />
     </xpath>
 </template>
 

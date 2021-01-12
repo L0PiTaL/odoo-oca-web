@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="FieldDomainApply" t-extend="FieldDomain">
+        <t t-jquery="div .o_domain_model_missing" t-operation="after">
+            <div class="o_row o_domain_apply_div mt4" style="width: 100%!important">
+                <button class="btn btn-primary btn-sm o_domain_apply" type="button">Apply</button>
+            </div>
+        </t>
+    </t>
+</templates>

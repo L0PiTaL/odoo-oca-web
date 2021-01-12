@@ -20,5 +20,6 @@
     ],
     "qweb": [
         "static/src/copied-xml/templates.xml",
+        "static/src/xml/te2_char_domain_apply.xml",
     ],
 }
