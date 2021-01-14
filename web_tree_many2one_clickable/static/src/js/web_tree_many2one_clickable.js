@@ -76,17 +76,20 @@ ListView.Column.include({
 });
 
 ListView.List.include({
+    _execute_formview_action: function(model, index) {
+        var self = this;
+        (new Model(model)).call('get_formview_action', [[index]]).then(function(action) {
+            self.view.do_action(action);
+        });
+    },
     render: function() {
         var result = this._super(this, arguments),
             self = this;
         this.$current.delegate('a[data-many2one-clickable-model]',
             'click', function() {
-                self.view.do_action({
-                    type: 'ir.actions.act_window',
-                    res_model: $(this).data('many2one-clickable-model'),
-                    res_id: $(this).data('many2one-clickable-id'),
-                    views: [[false, 'form']],
-                });
+                var model=$(this).data('many2one-clickable-model');
+                var res_id=$(this).data('many2one-clickable-id');
+                self._execute_formview_action(model, res_id)
             });
         return result;
     },
